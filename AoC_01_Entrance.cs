@@ -13,6 +13,7 @@ foreach (var line in data)
         zero++;
 }
 Console.WriteLine(zero);
+dial = 50;
 zero = 0;
 
 // --- PART 2
