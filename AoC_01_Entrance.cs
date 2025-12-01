@@ -1,19 +1,26 @@
-var data = File.ReadAllLines(@"c:\tmp\input.txt");
+var data = File.ReadAllLines(@"input.txt");
 
 int dial = 50;
 int zero = 0;
+// --- PART 1
+foreach (var line in data)
+{
+    int rotation = int.Parse(line[1..]);
+    dial = (dial +
+        (line[0] == 'L' ? (100 - rotation) : rotation)) % 100;
+
+    if (dial == 0)
+        zero++;
+}
+Console.WriteLine(zero);
+zero = 0;
+
+// --- PART 2
 
 foreach (var line in data)
 {
     int rotation = int.Parse(line[1..]);
-    // --- PART 1
-    // dial = (dial +
-    //     (line[0] == 'L' ? (100 - rotation) : rotation)) % 100;
 
-    // if (dial == 0)
-    //     zero++;
-
-    // --- PART 2
     while (rotation != 0)
     {
         if (line[0] == 'L')
